@@ -15,7 +15,7 @@ def main(filename1,filename2):
     network = OurNeuralNetwork()
     network.train(x_train, y_valid)
     accuracy = np.mean(np.abs(network.feedforward(x_valid)-y_valid)**2)*100
-    print(accuracy)
+    print('accuracy',accuracy)
     plt.show()
 def sigmoid(x):
     # Sigmoid activation function: f(x) = 1 / (1 + e^(-x))
@@ -37,11 +37,6 @@ class OurNeuralNetwork:
         - 4 inputs
         - a hidden layer with 4 neurons (h1, h2,h3,h4)
         - an output layer with 1 neuron (o1)
-
-    *** DISCLAIMER ***:
-    The code below is intended to be simple and educational, NOT optimal.
-    Real neural net code looks nothing like this. DO NOT use this code.
-    Instead, read/run it to understand how this specific network works.
     '''
     def __init__(self):
     # 权重，Weights
@@ -55,11 +50,7 @@ class OurNeuralNetwork:
         return o1
 
     def train(self, x, y):
-        '''
-        - data is a (n x 2) numpy array, n = # of samples in the dataset.
-        - all_y_trues is a numpy array with n elements.
-        Elements in all_y_trues correspond to those in data.
-        '''
+
         learn_rate = 1e-3
         epochs = 1000 # number of times to loop through the entire dataset
 
